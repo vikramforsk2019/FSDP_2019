@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun  4 10:56:51 2019
+
+@author: vikram
+"""
+
+"""
+
+# Create a list of number from 1 to 20 using range function. 
+# Using the slicing concept print all the even and odd numbers from the list 
+"""
+i=0
+list=[]
+for x in range(1,20) :
+ list.append(x)
+ print(list)
+print("odd number",list[1:20:2])
+print("even number",list[0:20:2])
