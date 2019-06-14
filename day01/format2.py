@@ -8,6 +8,7 @@ Created on Tue Jun  4 08:14:24 2019
 
 """
  Problem Statement:
+jai shree ram
     Write a program to print the output in the given format. 
     Take input from the user. 
      Input:
