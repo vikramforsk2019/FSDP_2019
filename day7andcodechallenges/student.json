@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun 11 15:57:15 2019
+
+@author: vikram
+"""
+
+
+
+Code Challenge
+  Name: 
+    Student and Faculty JSON
+  Filename: 
+    student.json
+    faculty.json
+  Problem Statement:
+    Create a student and Faculty JSON object and get it verified using jsonlint.com
+    Write a JSON for faculty profile. 
+    The JSON should have profile of minimum 2 faculty members. 
+    The profile for each faculty should include below information atleast:
+
+        First Name
+        Last Name
+        Photo (Just a random url)
+        Department 
+        Research Areas (can be multiple)
+        Contact Details (should include phone number and email id and can have multiple )
+   Hint:
+       www.jsonlint.com
+       
+import json
+json_string = """
+{
+"student":{
+"First Name":"vikram",
+"Last Name":"sinhg",
+"photo":"www.jsonlint.com",
+"Department":"computer science",
+"Research Areas":{
+"Research 1":"cryptography",
+"Research 2":"data science"
+}
+"Contact Details":[
+{
+"phone number":"987",
+"email id":"abc@gmail.com"
+}
+]
+}
+
+}
+"""
