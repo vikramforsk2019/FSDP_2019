@@ -28,7 +28,7 @@ Code Challenge
     Plot the results of the above activity to show total births by sex and year  
      
 """
-
+as=new_data.groupby(1)[0,1]
 import os
 entries = os.listdir('/home/vikram/Desktop/FSDP2019/day14andcodechallenges/baby_names')
 for file_name in entries:
@@ -54,20 +54,32 @@ for row in df3[0:]:
 import matplotlib.pyplot as plt
 import pandas as pd
 df1=pd.DataFrame()
-df=pd.DataFrame()
+df=pd.DataFrame()as=new_data.groupby(1)[0,1]
 
 for i in range(2000,2011):
     file_name = 'yob'+str(i)+'.txt'
     df=pd.DataFrame()
     with open(file_name) as data:
         file_contents = data.readlines()
-        df[i]= file_contents
+        df[i]= file_contents #i take as string for column name
     df1=pd.concat([df1,df],axis=1)
 
+"""
 
+ Calculate sum of the births column by sex as the total number of births 
+    in that year (use pandas pivot_table method)
+    Plot the results of the above activity to show total births by sex and year
+
+"""
 new_data = df1[2010].str.split(",", n = 2, expand = True) 
 
 
+#group of 3
+#df_rank=new_data.groupby([1,0,2])
+#df_rank.size()
+
+
+df_rank=new_data.groupby(1)[[2]].sum()
 #0-name,1-male,2-number
 
 

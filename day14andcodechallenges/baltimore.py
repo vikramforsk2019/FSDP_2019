@@ -86,7 +86,7 @@ grouped.groups.keys()
  
 # 0. remove the dollar signs in the AnnualSalary field and assign it as a float
 df['AnnualSalary']=df['AnnualSalary'].str.replace('$','')
-
+df['AnnualSalary'] = df['AnnualSalary'].astype(float)
 
 
 #Calculate mean,max value for each numeric column per each group
@@ -98,14 +98,21 @@ df.groupby('JobTitle')[['AnnualSalary']].min()
 df.groupby('JobTitle')[['AnnualSalary']].max()
 df.groupby('JobTitle')[['AnnualSalary']].mean()
 df.groupby('JobTitle')[['AnnualSalary']].sum()
-df.groupby('JobTitle')[['AnnualSalary']].sort_values('AnnualSalary')
+df.groupby('JobTitle')[['AnnualSalary']].sort_values(by='AnnualSalary')
 df.info()
 
 """
        import numpy as np
+       
        result = df.groupby("JobTitle")["AnnualSalary"].mean().sort_values()
+       print(result[-1])
+OR
+
        result = pd.pivot_table(df, values="AnnualSalary", index="JobTitle", aggfunc=np.mean)
+       result2 = pd.pivot_table(df, values="AnnualSalary", index="JobTitle", aggfunc=np.sum)
+     
        res = result.sort_values("AnnualSalary")
+       print('highest salary::',res['AnnualSalary'].index[-1],res['AnnualSalary'][-1])
 """
 
 
@@ -146,19 +153,11 @@ plt.xticks(rotation=90)
 
 #  0. Graph and show which Job Title spends the most
 
-df_rank=df.groupby(['JobTitle', 'GrossPay'])
-list4=df_rank.count()
-df_pay=df.groupby('JobTitle')[['JobTitle','GrossPay']]
-list3=df_pay.count()
+list8=df.groupby('JobTitle')[['GrossPay']].sum()
 
-
-
-
-
-
-
-
-
+import matplotlib.pyplot as plt
+plt.bar(list8.index[:10],list8["GrossPay"][:10])
+plt.xticks(rotation=90)
 
 
 

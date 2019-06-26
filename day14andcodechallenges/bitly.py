@@ -59,14 +59,9 @@ df.info()
 
 df=df.replace(r'^\s*$', 'UnKnown', regex=True)
 
-#print(df['c'].replace(r'[NaN]', 'UnKnown', regex=True))
+#print(df['c'].replace(r'9NaN', 'UnKnown', regex=True))
 
-
-# fill all the records with missing values, with mean of that column
-
-#new=df[df.replace(np.nan,'0')]
-
-#df[df.replace([' ','nan'],['Missing','UnKnown'])]
+df = df.fillna('Missing')
 
 
 # Print top 10 most frequent time-zones from the Dataset i.e. 'tz', with and without Pandas
@@ -91,10 +86,11 @@ for i in list_array:
         my_dict[i]=1
   
 
-print(sorted(my_dict.items(), key = 
-             lambda kv:(kv[1]))) 
-      
-#num = np.bincount(list_array).argmax()
+#print(sorted(my_dict.items(), key = lambda kv:(kv[1]))) 
+        
+temp_list=list(sorted(my_dict.items(), key = lambda kv:(kv[1])))
+print(temp_list[-11:-1])
+#num = np.bincount(list_array).argmax() use only float
 #mc = MultiComparison(df['Score'].astype('float'), df['Group'])
 
 
@@ -121,7 +117,7 @@ print(list6.values[0:5])
 
 import matplotlib.pyplot as plt
 import seaborn as sns 
-ax = sns.stripplot(list6.index[0:5], list6.values[0:5])
+ax = sns.stripplot(list6.index[0:5],list6.values[0:5])
 ax.set(xlabel ='Browser', ylabel ='Frequency') 
 plt.show()
 
@@ -131,10 +127,15 @@ Add a new Column as 'os' in the dataset, separate users by 'Windows' for the val
  'a' that contains "Windows" and "Not Windows" for those who don't
 
 """
+df['os']=df['a'].str.find('Windows')
 
 
 
 
+df['os']=df.loc[(df['os'] >0) & \
+           (df['a'])]
+
+df['os'].value_counts()
 
 
 

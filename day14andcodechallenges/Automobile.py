@@ -19,10 +19,16 @@ of their cars and explode the largest car maker
 import matplotlib.pyplot as plt
 import pandas as pd
 #Read csv file
+#df.sort_values(by='make',ascending=[True])   for dataframe sorting
 df = pd.read_csv("Automobile.csv")
 df.info()
+
 new_df=df['make'].value_counts()
+
+new_df.sort_values(ascending=[True]) # for series sort
+
 list2=new_df[0:10].tolist()
+#list2.sort(list2)
 list3=new_df.index[0:10].tolist()
 #df.loc[1:10,['make']]
 
