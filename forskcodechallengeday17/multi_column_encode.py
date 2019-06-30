@@ -8,7 +8,6 @@ Created on Wed Jun 26 08:52:58 2019
 
 import pandas as pd
 from sklearn import preprocessing 
-
 df= pd.DataFrame({
     'fruit':  ['apple','orange','pear','orange'],
     'color':  ['red','orange','green','green'],

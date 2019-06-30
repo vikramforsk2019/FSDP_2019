@@ -65,9 +65,9 @@ regressor1.fit(features, labels)
 
 print(regressor1.intercept_)  
 print (regressor1.coef_)
-x = np.array([90,70,150]).reshape(1,-1) #or (1,3)  according features data
+x = np.array([66,71]).reshape(1,-1) #or (1,3)  according features data
 
-print ('PIQ::',regressor1.predict(x))
+print ('Height::',regressor1.predict(x))
 Pred = regressor1.predict(features)
 
 
